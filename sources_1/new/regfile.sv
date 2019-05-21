@@ -1,26 +1,17 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2019/05/20 22:23:14
-// Design Name: 
-// Module Name: regfile
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module regfile(
-
+    input clk,
+    input we3,
+    input [4:0] ra1, ra2, wa3,
+    output [31:0] rd1, rd2
     );
+
+    logic [31:0] rf[31:0];
+
+    always @(negedge clk)
+        if (we3) rf[wa3] <= wd3;
+    
+    assign #1 rd1 = (ra1 != 0) ? rf[ra1] : 0;
+    assign #1 rd2 = (ra2 != 0) ? rf[ra2] : 0;
 endmodule

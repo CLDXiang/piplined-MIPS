@@ -1,26 +1,12 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2019/05/20 22:23:14
-// Design Name: 
-// Module Name: flopr
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-
-module flopr(
-
+module flopr #(parameter WIDTH = 8)
+    (
+        input clk, reset,
+        input [WIDTH-1:0] d,
+        output logic [WIDTH-1:0] q
     );
+    always @(posedge clk, posedge reset)
+        if (reset) q <= #1 0;
+        else q <= #1 d;
 endmodule
