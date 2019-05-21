@@ -14,7 +14,8 @@ module datapath(
     output logic [31:0] aluoutM, writedataM,
     input logic [31:0] readdataM,
     output logic [5:0] opD, functD,
-    output logic flushE
+    output logic flushE,
+    input logic immext
     );
 
     logic forwardaD, forwardbD;
@@ -25,6 +26,7 @@ module datapath(
     logic flushD;
     logic [31:0] pcnextFD, pcnextbrFD, pcplus4F, pcbranchD;
     logic [31:0] signimmD, signimmE, signimmshD;
+    logic [31:0] zeroimm, imm;
     logic [31:0] srcaD, srca2D, srcaE, srca2E;
     logic [31:0] srcbD, srcb2D, srcbE, srcb2E, srcb3E;
     logic [31:0] pcplus4D, instrD;
@@ -50,6 +52,7 @@ module datapath(
     flopenr #(32) r1D(clk, reset, ~stallD, pcplus4F, pcplus4D);
     flopenrc #(32) r2D(clk, reset, ~stallD, flushD, instrF, instrD);
     signext se(instrD[15:0], signimmD);
+    ze ze(instrD[15:0], zeroimm);
     sl2 immsh(signimmD, signimmshD);
     adder pcadd2(pcplus4D, signimmshD, pcbranchD);
     mux2 #(32) forwardadmux(srcaD, aluoutM, forwardaD, srca2D);
@@ -66,12 +69,13 @@ module datapath(
 
     floprc #(32) r1E(clk, reset, flushE, srcaD, srcaE);
     floprc #(32) r2E(clk, reset, flushE, srcbD, srcbE);
-    floprc #(32) r3E(clk, reset, flushE, signimmD, signimmE);
+    floprc #(32) r3E(clk, reset, flushE, imm, signimmE);
     floprc #(5) r4E(clk, reset, flushE, rsD, rsE);
     floprc #(5) r5E(clk, reset, flushE, rtD, rtE);
     floprc #(5) r6E(clk, reset, flushE, rdD, rdE);
     mux3 #(32) forwardaemux(srcaE, resultW, aluoutM, forwardaE, srca2E);
     mux3 #(32) forwardbemux(srcbE, resultW, aluoutM, forwardbE, srcb2E);
+    mux2 #(32) extmux(signimmD, zeroimm, immext, imm);
     mux2 #(32) srcbmux(srcb2E, signimmE, alusrcE, srcb3E);
     alu alu(srca2E, srcb3E, alucontrolE, aluoutE);
     mux2 #(5) wrmux(rtE, rdE, regdstE, writeregE);

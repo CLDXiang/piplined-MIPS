@@ -7,7 +7,7 @@ module controller(
     output logic memtoregE, memtoregM, memtoregW, memwriteM,
     output logic pcsrcD, branchD, alusrcE,
     output logic regdstE, regwriteE, regwriteM, regwriteW,
-    output logic jumpD,
+    output logic jumpD, immext,
     output logic [2:0] alucontrolE
     );
     logic [1:0] aluopD;
@@ -16,7 +16,7 @@ module controller(
     logic memwriteE;
 
     maindec md(opD, memtoregD, memwriteD, branchD,
-        alusrcD, regdstD, regwriteD, jumpD, aluopD);
+        alusrcD, regdstD, regwriteD, jumpD, immext, aluopD);
     aludec ad(functD, aluopD, alucontrolD);
 
     assign pcsrcD = branchD & equalD;

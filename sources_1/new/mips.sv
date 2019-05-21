@@ -15,15 +15,16 @@ module mips(
     logic [2:0] alucontrolE;
     logic flushE, equalD;
     logic branchD, jumpD;
+    logic immext;
 
     controller c(clk, reset, opD, functD, flushE, equalD,
         memtoregE, memtoregM, memtoregW, memwriteM, pcsrcD, branchD,
-        alusrcE, regdstE, regwriteE, regwriteM, regwriteW, jumpD,
+        alusrcE, regdstE, regwriteE, regwriteM, regwriteW, jumpD, immext,
         alucontrolE);
     datapath dp(clk, reset, memtoregE, memtoregM, memtoregW, pcsrcD, branchD,
         alusrcE, regdstE, regwriteE, regwriteM, regwriteW, jumpD,
         alucontrolE,
         equalD, pcF, instrF,
         aluoutM, writedataM, readdataM,
-        opD, functD, flushE);
+        opD, functD, flushE, immext);
 endmodule
