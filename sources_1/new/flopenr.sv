@@ -2,9 +2,9 @@
 
 module flopenr #(parameter WIDTH = 8)
     (
-        input clk, reset,
-        input en,
-        input [WIDTH-1:0] d,
+        input logic clk, reset,
+        input logic en,
+        input logic [WIDTH-1:0] d,
         output logic [WIDTH-1:0] q
     );
     always @(posedge clk, posedge reset)

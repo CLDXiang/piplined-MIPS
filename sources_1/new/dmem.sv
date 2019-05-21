@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
 module dmem(
-    input clk, we,
-    input [31:0] a, wd,
-    output [31:0] rd
+    input logic clk, we,
+    input logic [31:0] a, wd,
+    output logic [31:0] rd
     );
 
     logic [31:0] RAM[255:0];

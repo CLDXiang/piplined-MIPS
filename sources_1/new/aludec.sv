@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 module aludec(
-    input [5:0] funct,
-    input [1:0] aluop,
+    input logic [5:0] funct,
+    input logic [1:0] aluop,
     output logic [2:0] alucontrol
     );
 

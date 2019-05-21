@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 
 module controller(
-    input clk, reset,
-    input [5:0] opD, functD,
-    input flushE, equalD,
-    output memtoregE, memtoregM, memtoregW, memwriteM,
-    output pcsrcD, branchD, alusrcE,
-    output regdstE, regwriteE, regwriteM, regwriteW,
-    output jumpD,
-    output [2:0] alucontrolE
+    input logic clk, reset,
+    input logic [5:0] opD, functD,
+    input logic flushE, equalD,
+    output logic memtoregE, memtoregM, memtoregW, memwriteM,
+    output logic pcsrcD, branchD, alusrcE,
+    output logic regdstE, regwriteE, regwriteM, regwriteW,
+    output logic jumpD,
+    output logic [2:0] alucontrolE
     );
     logic [1:0] aluopD;
     logic memtoregD, memwriteD, alusrcD, regdstD, regwriteD;

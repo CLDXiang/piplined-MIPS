@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
 module hazard(
-    input [4:0] rsD, rtD, rsE, rtE,
-    input [4:0] writeregE, writeregM, writeregW,
-    input regwriteE, regwriteM, regwriteW,
-    input memtoregE, memtoregM, branchD,
-    output forwardaD, forwardbD,
+    input logic [4:0] rsD, rtD, rsE, rtE,
+    input logic [4:0] writeregE, writeregM, writeregW,
+    input logic regwriteE, regwriteM, regwriteW,
+    input logic memtoregE, memtoregM, branchD,
+    output logic forwardaD, forwardbD,
     output logic [1:0] forwardaE, forwardbE,
-    output stallF, stallD, flushE
+    output logic stallF, stallD, flushE
     );
 
     logic lwstallD, branchstallD;

@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 module alu(
-    input [31:0] a, b,
-    input [2:0] alucont,
+    input logic [31:0] a, b,
+    input logic [2:0] alucont,
     output logic [31:0] result
     );
 

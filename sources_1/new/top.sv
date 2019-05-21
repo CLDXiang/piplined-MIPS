@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
 module top(
-    input clk, reset,
-    output [31:0] writedata, dataadr,
-    output memwrite
+    input logic clk, reset,
+    output logic [31:0] writedata, dataadr,
+    output logic memwrite
     );
 
     logic [31:0] pc, instr, readdata;

@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 module eqcmp(
-    input [31:0] a, b,
-    output eq
+    input logic [31:0] a, b,
+    output logic eq
     );
     assign eq = (a == b);
 endmodule

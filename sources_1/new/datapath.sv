@@ -1,20 +1,20 @@
 `timescale 1ns / 1ps
 
 module datapath(
-    input clk, reset,
-    input memtoregE, memtoregM, memtoregW,
-    input pcsrcD, branchD,
-    input alusrcE, regdstE,
-    input regwriteE, regwriteM, regwriteW,
-    input jumpD,
-    input [2:0] alucontrolE,
-    output equalD,
-    output [31:0] pcF,
-    input [31:0] instrF,
-    output [31:0] aluoutM, writedataM,
-    input [31:0] readdataM,
-    output [5:0] opD, functD,
-    output flushE
+    input logic clk, reset,
+    input logic memtoregE, memtoregM, memtoregW,
+    input logic pcsrcD, branchD,
+    input logic alusrcE, regdstE,
+    input logic regwriteE, regwriteM, regwriteW,
+    input logic jumpD,
+    input logic [2:0] alucontrolE,
+    output logic equalD,
+    output logic [31:0] pcF,
+    input logic [31:0] instrF,
+    output logic [31:0] aluoutM, writedataM,
+    input logic [31:0] readdataM,
+    output logic [5:0] opD, functD,
+    output logic flushE
     );
 
     logic forwardaD, forwardbD;

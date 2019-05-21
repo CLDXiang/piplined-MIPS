@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 
 module mips(
-    input clk, reset,
-    output [31:0] pcF,
-    input [31:0] instrF,
-    output memwriteM,
-    output [31:0] aluoutM, writedataM,
-    input [31:0] readdataM
+    input logic clk, reset,
+    output logic [31:0] pcF,
+    input logic [31:0] instrF,
+    output logic memwriteM,
+    output logic [31:0] aluoutM, writedataM,
+    input logic [31:0] readdataM
     );
 
     logic [5:0] opD, functD;

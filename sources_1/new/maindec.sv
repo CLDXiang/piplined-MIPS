@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 
 module maindec(
-    input [5:0] op,
-    output memtoreg, memwrite,
-    output branch, alusrc,
-    output regdst, regwrite,
-    output jump,
-    output [1:0] aluop
+    input logic [5:0] op,
+    output logic memtoreg, memwrite,
+    output logic branch, alusrc,
+    output logic regdst, regwrite,
+    output logic jump,
+    output logic [1:0] aluop
     );
 
     logic [9:0] controls;
