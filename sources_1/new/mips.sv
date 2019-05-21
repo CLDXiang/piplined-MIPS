@@ -14,6 +14,7 @@ module mips(
         memtoregW, regwriteE, regwriteM, regwriteW;
     logic [2:0] alucontrolE;
     logic flushE, equalD;
+    logic branchD, jumpD;
 
     controller c(clk, reset, opD, functD, flushE, equalD,
         memtoregE, memtoregM, memtoregW, memwriteM, pcsrcD, branchD,
