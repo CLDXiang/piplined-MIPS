@@ -11,15 +11,15 @@ module testbench();
     
     initial
         begin
-            reset <= 1; #22; reset <= 0;
+            reset <= 1; #100; reset <= 0;
         end
         
     always
         begin
             clk <= 1; 
-            #5; 
+            #20; 
             clk <= 0; 
-            #5;
+            #20;
         end
     
     always @(negedge clk)

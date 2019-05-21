@@ -8,6 +8,6 @@ module flopenr #(parameter WIDTH = 8)
         output logic [WIDTH-1:0] q
     );
     always @(posedge clk, posedge reset)
-        if (reset) q <= #1 0;
-        else if (en) q <= #1 d;
+        if (reset) q <=  0;
+        else if (en) q <=  d;
 endmodule

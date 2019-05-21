@@ -27,12 +27,12 @@ module hazard(
                 else if (rtE == writeregW & regwriteW) forwardbE = 2'b01;
         end
     
-    assign #1 lwstallD = memtoregE & (rtE == rsD | rtE == rtD);
-    assign #1 branchstallD = branchD &
+    assign lwstallD = memtoregE & (rtE == rsD | rtE == rtD);
+    assign branchstallD = branchD &
         (regwriteE & (writeregE == rsD | writeregE == rtD) |
         memtoregM & (writeregM == rsD | writeregM == rtD));
     
-    assign #1 stallD = lwstallD | branchstallD;
-    assign #1 stallF = stallD;
-    assign #1 flushE = stallD;
+    assign stallD = lwstallD | branchstallD;
+    assign stallF = stallD;
+    assign flushE = stallD;
 endmodule

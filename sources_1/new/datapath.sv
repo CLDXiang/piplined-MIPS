@@ -19,7 +19,7 @@ module datapath(
 
     logic forwardaD, forwardbD;
     logic [1:0] forwardaE, forwardbE;
-    logic stallF;
+    logic stallF, stallD;
     logic [4:0] rsD, rtD, rdD, rsE, rtE, rdE;
     logic [4:0] writeregE, writeregM, writeregW;
     logic flushD;
@@ -35,7 +35,7 @@ module datapath(
         regwriteE, regwriteM, regwriteW,
         memtoregE, memtoregM, branchD,
         forwardaD, forwardbD, forwardaE, forwardbE,
-        stallF, stallD, flushE); // mark stallD
+        stallF, stallD, flushE);
     
     mux2 #(32) pcbrmux(pcplus4F, pcbranchD, pcsrcD, pcnextbrFD);
     mux2 #(32) pcmux(pcnextbrFD, {pcplus4D[31:28], instrD[25:0], 2'b00},

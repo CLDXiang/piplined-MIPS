@@ -13,6 +13,6 @@ module regfile(
     always @(negedge clk)
         if (we3) rf[wa3] <= wd3;
     
-    assign #1 rd1 = (ra1 != 0) ? rf[ra1] : 0;
-    assign #1 rd2 = (ra2 != 0) ? rf[ra2] : 0;
+    assign rd1 = (ra1 != 0) ? rf[ra1] : 0;
+    assign rd2 = (ra2 != 0) ? rf[ra2] : 0;
 endmodule

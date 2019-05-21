@@ -6,7 +6,7 @@ module dmem(
     output [31:0] rd
     );
 
-    logic [31:0] RAM[63:0];
+    logic [31:0] RAM[255:0];
 
     assign rd = RAM[a[31:2]];
 
