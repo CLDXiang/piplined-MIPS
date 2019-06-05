@@ -8,8 +8,9 @@ module imem(
     logic [31:0] RAM[255:0];
     
     initial
-//        $readmemh("memfile.dat", RAM);
+        $readmemh("memfile.dat", RAM);
+//        $readmemh("memfile_sub.dat", RAM);
 //        $readmemh("memfile_src.dat", RAM);
-       $readmemh("memfile_andi.dat", RAM);
+//        $readmemh("memfile_andi.dat", RAM);
     assign rd = RAM[a];
 endmodule
